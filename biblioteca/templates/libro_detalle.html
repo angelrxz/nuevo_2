@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ libro.titulo }}</title>
+</head>
+<body>
+	<main>
+		<p><a href="{% url 'mostrar_libros' %}">Volver a los libros</a></p>
+		<article>
+			<h1>{{ libro.titulo }}</h1>
+			<dl>
+				<dt>Autor</dt>
+				<dd>{{ libro.autor }}</dd>
+				<dt>Fecha de publicación</dt>
+				<dd>{{ libro.fecha_publicacion|date:"j \d\e F \d\e Y" }}</dd>
+				<dt>ISBN</dt>
+				<dd>{{ libro.isbn }}</dd>
+				<dt>Género</dt>
+				<dd>{{ libro.genero }}</dd>
+			</dl>
+		</article>
+	</main>
+</body>
+</html>

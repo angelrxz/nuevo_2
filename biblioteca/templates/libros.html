@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Libros</title>
+</head>
+<body>
+	<main>
+		<h1>Libros</h1>
+		{% if libros %}
+			<table>
+				<thead>
+					<tr>
+						<th scope="col">Título</th>
+						<th scope="col">Autor</th>
+						<th scope="col">Fecha de publicación</th>
+						<th scope="col">Género</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for libro in libros %}
+						<tr>
+                            <td><a href="{% url 'mostrar_libro_detalle' libro.id %}">{{ libro.titulo }}</a></td>
+                            <td>{{ libro.autor }}</td>
+                            <td>{{ libro.fecha_publicacion|date:"j \d\e F \d\e Y" }}</td>
+                            <td>{{ libro.genero }}</td>
+                        </tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p>No hay libros registrados.</p>
+		{% endif %}
+	</main>
+</body>
+</html>
+
